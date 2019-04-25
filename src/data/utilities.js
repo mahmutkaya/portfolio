@@ -1,18 +1,19 @@
 import React from 'react'
 import { Card, CardImg, CardLink, CardTitle, CardBody, Row, Col } from 'reactstrap';
 
-const skills = (icons, info) => {
+const skills = (icons, info, link) => {
   console.log(info)
   return icons.map((icon, index) => (
     <div
-      className='skillsIcons'
+      className='icons'
       key={index}>
+      <a href={link[index]} target="_blank" rel="noopener noreferrer">
       <i
         className={icon}
         data-tip={info[index]}>
-      </i>
+        </i>
+      </a>
     </div>
-
   ))
 }
 
@@ -27,4 +28,4 @@ const projects = (img, link) => (
 )
 
 
-export { skills, projects }
+export {  skills, projects }

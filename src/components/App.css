@@ -2,11 +2,14 @@
   width: 100%;
   font-family: 'Handlee','Patrick Hand', 'Coming Soon', 'Open Sans', 'sans-serif',  cursive;  
 }
+.App a:hover{color: unset;}
+
 
 .main-page a{
   color: unset;
   background-color: #EAECEE;
 }
+.icons a{background-color: unset}
 
  .main-page h1{font-size: 3em;}
 
@@ -40,7 +43,7 @@ img:hover{
   color: #ABB2B9;
 }
 
-.skillsIcons {
+.icons {
   display: inline;
   margin: 17px;
 }
@@ -75,10 +78,22 @@ img:hover{
   margin-block-start: 50%;
 }
 
-#profile-photo{
-  width: 70%;
-  height: 100%;
-  box-shadow: #ABB2B9 5px 21px 37px 19px;
-  border-radius: 12px;
+#about-me{
+  border: none;
 }
 
+#profile-photo{
+  width: 70%;
+  height: auto;
+  box-shadow: #ABB2B9 5px 21px 37px 19px;
+  border-radius: 12px;
+  margin-bottom: 37px;
+}
+
+#profile-photo:hover{
+  filter: none;
+}
+
+.social-accounts{
+  margin-top: 25px;
+}

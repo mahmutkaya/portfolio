@@ -57,12 +57,10 @@ class Contact extends Component {
       <div>
         <h1>Contact Page</h1>
         <i class="far fa-address-card"></i>
-        <i class="fab fa-linkedin"></i>
-        <i class="fab fa-github"></i>
-        <i class="fab fa-skype"></i>
-        <i class="fas fa-phone-square"></i>
-        <i class="fas fa-at"></i>
-        <i class="fab fa-whatsapp-square"></i>
+        <i class="fab fa-skype"></i><span>mahmutkaya</span>
+        <i class="fas fa-phone-square"></i><span>+31686433636</span>
+        <i class="fab fa-whatsapp-square"></i><span>+31686433636</span>
+        <i class="fas fa-at"></i><span>mahmutkaya.nl@gmail.com</span>
         <hr/>
         
         <Form action="https://docs.google.com/forms/d/e/1FAIpQLSfJsOJYGM8ddbt1_ACCHQsrprtKEmpwiNmntTKlHb496fMczg/formResponse" onSubmit={this.handleSubmit}>

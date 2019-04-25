@@ -3,12 +3,9 @@ import { Link } from 'react-router-dom'
 import { Row, Col, Button } from 'reactstrap';
 import ReactTooltip from 'react-tooltip'
 import { languages, languagesIcons, devTools, devToolsIcons } from '../data/info'
-import {skills} from '../data/utilities'
+import {skills } from '../data/utilities'
 
 class MainPage extends Component {
-
-  skills = this.skills
-
   render() {
     return (
         <Row>
@@ -26,11 +23,11 @@ class MainPage extends Component {
         <div className='skills'>
           <div className='languages'>
           <h5>Languages I speak:</h5>
-          {skills(languagesIcons,languages)}
+          {skills(languagesIcons, languages, '')}
           </div>
           <div className='dev-tools'>
               <h5>Dev Tools:</h5>
-              {skills(devToolsIcons, devTools)}
+              {skills(devToolsIcons, devTools, '')}
           </div>
               </div>
             </Col>
