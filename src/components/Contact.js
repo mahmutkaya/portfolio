@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, FormText, Row, Col } from 'reactstrap';
 
 const GOOGLE_FORM_MESSAGE_ID = 'entry.354900912'
-const GOOGLE_FORM_EMAIL_ID = 'emailAddress'
-const GOOGLE_FORM_NAME_ID = 'entry.37604791'
-const CORS_PROXY = 'https://cors-escape.herokuapp.com/'
+const GOOGLE_FORM_EMAIL_ID = 'entry.1973306023'
+const GOOGLE_FORM_NAME_ID = 'entry.1730565971'
+const CORS_PROXY = 'https://cors-anywhere.herokuapp.com/'
 const GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSfJsOJYGM8ddbt1_ACCHQsrprtKEmpwiNmntTKlHb496fMczg/formResponse'
 
 class Contact extends Component {
@@ -23,9 +23,37 @@ class Contact extends Component {
     }
   }
 
+  handleChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value })
+  }
+
   handleSubmit = (event) => {
     event.preventDefault()
+    this.setState({
+      sendingMessage: true
+    })
     this.sendMessage()
+  }
+
+  handleFormToggle = () => {
+    this.setState(
+      (prevState) => {
+        const { showForm } = prevState
+        return {
+          showForm: !showForm
+        }
+      }
+    )
+  }
+
+  handleReturnButton = () => {
+    this.setState(
+      {
+        showForm: false,
+        messageSent: false,
+        messageError: false
+      }
+    )
   }
 
   sendMessage = () => {
@@ -51,31 +79,146 @@ class Contact extends Component {
       })
   }
 
+  returnButton = () => <button id='return-button' className='btn btn-default btn-xs' onClick={this.handleReturnButton}>Return</button>
+
 
   render() {
+    if (this.state.sendingMessage) {
+      return (
+        <div>Sending...</div>
+      )
+    }
+
+    if (this.state.messageSent) {
+      return (
+        <React.Fragment>
+          <div className='success-message'>Sent! I will respond asap</div>
+          {this.returnButton()}
+        </React.Fragment>
+      )
+    }
+
+    if (this.state.messageError) {
+      return (
+        <React.Fragment>
+          <div className='error-message'>Sorry, your message was not sent. Contact me at: mahmutkaya.nl@gmail.com</div>
+          {this.returnButton()}
+        </React.Fragment>
+      )
+    }
+
+    if (this.state.showForm === false) {
+      return (
+        <button id='contact-button' className='btn btn-sm' onClick={this.handleFormToggle}>Contact</button>
+      )
+    }
     return (
-      <div>
-        <h1>Contact Page</h1>
-        <i class="far fa-address-card"></i>
-        <i class="fab fa-skype"></i><span>mahmutkaya</span>
-        <i class="fas fa-phone-square"></i><span>+31686433636</span>
-        <i class="fab fa-whatsapp-square"></i><span>+31686433636</span>
-        <i class="fas fa-at"></i><span>mahmutkaya.nl@gmail.com</span>
+      <React.Fragment>
+      <h1>Get in touch!</h1>
         <hr/>
-        
-        <Form action="https://docs.google.com/forms/d/e/1FAIpQLSfJsOJYGM8ddbt1_ACCHQsrprtKEmpwiNmntTKlHb496fMczg/formResponse" onSubmit={this.handleSubmit}>
-          <FormGroup>
-            <Input type="email" value={this.state.email} onChange={this.handleChange} jsname="YPqjbf" autocomplete="email" tabindex="0" aria-label="Your email" name="emailAddress" required="" dir="auto" data-initial-dir="auto" data-initial-value="" aria-invalid="true"></Input>
+          <Row>
+        <Col sm={{ size: 2, order: 0, offset: 0 }}>
+            <i className="fab fa-skype"></i><span>mahmutkaya</span>
+            <i className="fas fa-phone-square"></i><span>+31686433636</span>
+            <i className="fab fa-whatsapp-square"></i><span>+31686433636</span>
+            <i className="fas fa-at"></i><span>mahmutkaya.nl@gmail.com</span>
+        </Col>
+          <Col sm={{ size: 7, order: 0, offset: 2 }}>
+            {/* <React.Fragment>
+              <div className='form-container'>
+                <form onSubmit={this.handleSubmit}>
+                  <div className='form-group row'>
+                    <label htmlFor='name' className='col-sm-2 col-form-label'>
+                      Name:
+              </label>
+                    <div className='col-sm-8'>
+                      <input
+                        type='name'
+                        name='name'
+                        id='name'
+                        className='form-control'
+                        value={this.state.name}
+                        onChange={this.handleChange}
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div className='form-group row'>
+                    <label htmlFor='email' className='col-sm-2 col-form-label'>
+                      Email:
+              </label>
+                    <div className='col-sm-8'>
+                      <input
+                        type='email'
+                        name='email'
+                        id='email'
+                        className='form-control'
+                        value={this.state.email}
+                        onChange={this.handleChange}
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div className='form-group row'>
+                    <label htmlFor='message' className='col-sm-2 col-form-label'>
+                      Message:
+              </label>
+                    <div className='col-sm-8'>
+                      <textarea
+                        id='message'
+                        name='message'
+                        className='form-control'
+                        required
+                        value={this.state.message}
+                        onChange={this.handleChange}
+                        rows='6'
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <button type='button' id='cancel-button' className='btn btn-default btn-sm btn-action' onClick={this.handleFormToggle}>Cancel</button>
+                    <button type='submit' className='btn btn-sm btn-default btn-action'>Submit</button>
+                  </div>
+                </form>
+              </div>
+            </React.Fragment> */}
+        <Form onSubmit={this.handleSubmit}>
+              <FormGroup>
+                <Label for="email">Email</Label>
+                <Input
+                  type="email"
+                  name="email"
+                  id='email'
+                  value={this.state.email}
+                  onChange={this.handleChange}
+                  required></Input>
           </FormGroup>
-          <FormGroup>
-            <Input type="text" name="entry.37604791" value={this.state.name} onChange={this.handleChange} jsname="YPqjbf" autocomplete="off" tabindex="0" aria-label="Name" aria-describedby="i.desc.361852843 i.err.361852843" required="" dir="auto" data-initial-dir="auto" data-initial-value="" aria-invalid="true"></Input>
+              <FormGroup>
+                <Label for="name">Name</Label>
+                <Input
+                  type="text"
+                  name="name"
+                  id='name'
+                  value={this.state.name}
+                  onChange={this.handleChange}
+                  aria-label="Name"
+                  required></Input>
           </FormGroup>
-          <FormGroup>
-            <Input type="textarea" name="entry.354900912" value={this.state.message} onChange={this.handleChange} jsname="YPqjbf" data-rows="1" tabindex="0" aria-label="Message" jscontroller="gZjhIf" jsaction="input:Lg5SV;ti6hGc:XMgOHc;rcuQ6b:WYd;" required="" dir="auto" data-initial-dir="auto" data-initial-value="" aria-describedby="i.desc.1943605669 i.err.1943605669" aria-invalid="true"></Input>
+              <FormGroup>
+                <Label for="message">Message</Label>
+                <Input type="textarea"
+                  name="message"
+                  id='message'
+                  value={this.state.message}
+                  onChange={this.handleChange} 
+                  aria-label="Message"
+                  required ></Input>
           </FormGroup>
           <Button type='submit'>Submit</Button>
-        </Form>
-      </div>
+          </Form>
+        </Col>
+        </Row>
+      </React.Fragment>
     )
   }
 }

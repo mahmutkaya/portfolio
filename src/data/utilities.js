@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, CardImg, CardLink, CardTitle, CardBody, Row, Col } from 'reactstrap';
+import { Card, CardImg, CardLink, Col } from 'reactstrap';
 
 const skills = (icons, info, link) => {
   console.log(info)
