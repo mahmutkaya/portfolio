@@ -1,6 +1,11 @@
 import React, { Component } from 'react'
+import ReactTooltip from 'react-tooltip'
 import axios from 'axios'
-import { Button, Form, FormGroup, Label, Input, FormText, Row, Col } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, Row, Col, Card, CardText, CardImg, Spinner} from 'reactstrap';
+import { contactIcons, contactInfo, contactId } from '../logic/info'
+import { contactAccounts } from '../logic/utilities'
+import mailSent from '../img/mailSent.gif'
+import somethingWentWrong from '../img/somethingWentWrong.gif'
 
 const GOOGLE_FORM_MESSAGE_ID = 'entry.354900912'
 const GOOGLE_FORM_EMAIL_ID = 'entry.1973306023'
@@ -15,8 +20,7 @@ class Contact extends Component {
     this.state = {
       message: '',
       email: '',
-      name:'',
-      showForm: false,
+      name: '',
       sendingMessage: false,
       messageSent: false,
       messageError: false
@@ -33,17 +37,6 @@ class Contact extends Component {
       sendingMessage: true
     })
     this.sendMessage()
-  }
-
-  handleFormToggle = () => {
-    this.setState(
-      (prevState) => {
-        const { showForm } = prevState
-        return {
-          showForm: !showForm
-        }
-      }
-    )
   }
 
   handleReturnButton = () => {
@@ -69,7 +62,7 @@ class Contact extends Component {
           sendingMessage: false,
           message: '',
           email: '',
-          name:'',
+          name: '',
         })
       }).catch(() => {
         this.setState({
@@ -79,146 +72,110 @@ class Contact extends Component {
       })
   }
 
-  returnButton = () => <button id='return-button' className='btn btn-default btn-xs' onClick={this.handleReturnButton}>Return</button>
-
+  returnButton = () => (
+    <Button
+      color='link'
+      onClick={this.handleReturnButton}
+    >
+      <i data-tip='go back' className="fas fa-arrow-left goBack"></i>
+      <ReactTooltip />
+    </Button>
+  )
 
   render() {
-    if (this.state.sendingMessage) {
-      return (
-        <div>Sending...</div>
-      )
-    }
+    const { sendingMessage, messageSent, messageError } = this.state
 
-    if (this.state.messageSent) {
-      return (
-        <React.Fragment>
-          <div className='success-message'>Sent! I will respond asap</div>
-          {this.returnButton()}
-        </React.Fragment>
-      )
-    }
-
-    if (this.state.messageError) {
-      return (
-        <React.Fragment>
-          <div className='error-message'>Sorry, your message was not sent. Contact me at: mahmutkaya.nl@gmail.com</div>
-          {this.returnButton()}
-        </React.Fragment>
-      )
-    }
-
-    if (this.state.showForm === false) {
-      return (
-        <button id='contact-button' className='btn btn-sm' onClick={this.handleFormToggle}>Contact</button>
-      )
-    }
     return (
-      <React.Fragment>
-      <h1>Get in touch!</h1>
-        <hr/>
-          <Row>
-        <Col sm={{ size: 2, order: 0, offset: 0 }}>
-            <i className="fab fa-skype"></i><span>mahmutkaya</span>
-            <i className="fas fa-phone-square"></i><span>+31686433636</span>
-            <i className="fab fa-whatsapp-square"></i><span>+31686433636</span>
-            <i className="fas fa-at"></i><span>mahmutkaya.nl@gmail.com</span>
+      //if:
+      sendingMessage ? (
+        <Col className='messageStatus' sm='2'>
+          <h1 >
+            Sending...
+                </h1>
+          <Spinner color="dark" style={{ width: '3rem', height: '3rem' }} />
         </Col>
-          <Col sm={{ size: 7, order: 0, offset: 2 }}>
-            {/* <React.Fragment>
-              <div className='form-container'>
-                <form onSubmit={this.handleSubmit}>
-                  <div className='form-group row'>
-                    <label htmlFor='name' className='col-sm-2 col-form-label'>
-                      Name:
-              </label>
-                    <div className='col-sm-8'>
-                      <input
-                        type='name'
-                        name='name'
-                        id='name'
-                        className='form-control'
-                        value={this.state.name}
-                        onChange={this.handleChange}
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div className='form-group row'>
-                    <label htmlFor='email' className='col-sm-2 col-form-label'>
-                      Email:
-              </label>
-                    <div className='col-sm-8'>
-                      <input
-                        type='email'
-                        name='email'
-                        id='email'
-                        className='form-control'
-                        value={this.state.email}
-                        onChange={this.handleChange}
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div className='form-group row'>
-                    <label htmlFor='message' className='col-sm-2 col-form-label'>
-                      Message:
-              </label>
-                    <div className='col-sm-8'>
-                      <textarea
-                        id='message'
-                        name='message'
-                        className='form-control'
-                        required
-                        value={this.state.message}
-                        onChange={this.handleChange}
-                        rows='6'
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <button type='button' id='cancel-button' className='btn btn-default btn-sm btn-action' onClick={this.handleFormToggle}>Cancel</button>
-                    <button type='submit' className='btn btn-sm btn-default btn-action'>Submit</button>
-                  </div>
-                </form>
+      )
+
+        //if else:
+        : messageSent ? (
+          <Col className='messageStatus' sm='4'>
+            <Card>
+              <CardImg top width="100%" src={mailSent} />
+              <hr />
+              <CardText>
+                Thank you for contacting me. <br />
+                I will reply you as soon as possible!
+              </CardText>
+            </Card>
+            <hr />
+            {this.returnButton()}
+          </Col>
+        )
+
+          //if else:
+          : messageError ? (
+            <Col className='messageStatus' sm='4'>
+              <Card>
+                <CardImg src={somethingWentWrong} />
+                <hr />
+                <CardText>
+                  Sorry, something went wrong! <br />
+                  Please, contact me at: mahmutkaya.nl@gmail.com
+              </CardText>
+              </Card>
+              <hr />
+              {this.returnButton()}
+            </Col>
+          )
+
+            //else:  
+            : (
+              <div id='contactPage'>
+                <h1>Get in touch!</h1>
+                <hr />
+                <Row>
+                  <Col sm='3'>
+                    {contactAccounts(contactIcons, contactId, contactInfo)}
+                  </Col>
+                  <Col sm='6'>
+                    <Form onSubmit={this.handleSubmit}>
+                      <FormGroup>
+                        <Label for="email">Email</Label>
+                        <Input
+                          type="email"
+                          name="email"
+                          id='email'
+                          value={this.state.email}
+                          onChange={this.handleChange}
+                          required></Input>
+                      </FormGroup>
+                      <FormGroup>
+                        <Label for="name">Name</Label>
+                        <Input
+                          type="text"
+                          name="name"
+                          id='name'
+                          value={this.state.name}
+                          onChange={this.handleChange}
+                          aria-label="Name"
+                          required></Input>
+                      </FormGroup>
+                      <FormGroup>
+                        <Label for="message">Message</Label>
+                        <Input type="textarea"
+                          name="message"
+                          id='message'
+                          value={this.state.message}
+                          onChange={this.handleChange}
+                          aria-label="Message"
+                          required ></Input>
+                      </FormGroup>
+                      <Button type='submit'>Submit</Button>
+                    </Form>
+                  </Col>
+                </Row>
               </div>
-            </React.Fragment> */}
-        <Form onSubmit={this.handleSubmit}>
-              <FormGroup>
-                <Label for="email">Email</Label>
-                <Input
-                  type="email"
-                  name="email"
-                  id='email'
-                  value={this.state.email}
-                  onChange={this.handleChange}
-                  required></Input>
-          </FormGroup>
-              <FormGroup>
-                <Label for="name">Name</Label>
-                <Input
-                  type="text"
-                  name="name"
-                  id='name'
-                  value={this.state.name}
-                  onChange={this.handleChange}
-                  aria-label="Name"
-                  required></Input>
-          </FormGroup>
-              <FormGroup>
-                <Label for="message">Message</Label>
-                <Input type="textarea"
-                  name="message"
-                  id='message'
-                  value={this.state.message}
-                  onChange={this.handleChange} 
-                  aria-label="Message"
-                  required ></Input>
-          </FormGroup>
-          <Button type='submit'>Submit</Button>
-          </Form>
-        </Col>
-        </Row>
-      </React.Fragment>
+            )
     )
   }
 }

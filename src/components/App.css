@@ -78,7 +78,8 @@ img:hover{
   margin-block-start: 50%;
 }
 
-#about-me{
+#about-me,
+.messageStatus .card {
   border: none;
 }
 
@@ -96,4 +97,27 @@ img:hover{
 
 .social-accounts{
   margin-top: 25px;
+}
+
+/* contactPage */
+
+#contactPage{
+  width: 80%;
+  margin: auto;
+
+}
+
+#contactPage button{
+  margin-block-end: 10%;
+}
+
+.messageStatus{
+  text-align: center;
+  margin: auto;
+  border: none;
+}
+
+.goBack {
+  font-size: 5em;
+  background-color: white;
 }

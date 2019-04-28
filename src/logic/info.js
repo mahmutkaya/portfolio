@@ -46,4 +46,26 @@ const socialAccountLinks = [
   'https://www.facebook.com/profile.php?id=100012397628245'
 ]
 
-export { languages, languagesIcons, devTools, devToolsIcons, socialAccounts, socialAccountLinks }
+//contact
+const contactIcons = [
+  'fab fa-skype',
+  'fas fa-phone-square',
+  'fab fa-whatsapp-square',
+  'fas fa-at'
+]
+
+const contactId = [
+  'skype',
+  'phone',
+  'whatsapp',
+  'mail'
+]
+
+const contactInfo = [
+  'live:mahmutkaya.nl',
+  '+31686433636',
+  '+31686433636',
+  'mahmutkaya.nl@gmail.com',
+]
+
+export { languages, languagesIcons, devTools, devToolsIcons, socialAccounts, socialAccountLinks, contactIcons, contactId, contactInfo }

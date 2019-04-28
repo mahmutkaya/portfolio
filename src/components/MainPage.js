@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { Row, Col, Button } from 'reactstrap';
 import ReactTooltip from 'react-tooltip'
-import { languages, languagesIcons, devTools, devToolsIcons } from '../data/info'
-import {skills } from '../data/utilities'
+import { languages, languagesIcons, devTools, devToolsIcons } from '../logic/info'
+import {skills } from '../logic/utilities'
 
 class MainPage extends Component {
   render() {

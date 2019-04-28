@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {Row} from 'reactstrap';
-import { projects } from '../data/utilities'
+import { projects } from '../logic/utilities'
 import portfolio from '../img/portfolio.PNG'
 import news from '../img/news.PNG'
 import wiki from '../img/wiki.PNG'

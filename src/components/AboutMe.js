@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { socialAccounts, socialAccountLinks } from '../data/info'
-import {skills} from '../data/utilities'
+import { socialAccounts, socialAccountLinks } from '../logic/info'
+import {skills} from '../logic/utilities'
 import profilePhoto from '../img/profilePhoto.png'
 
 class AboutMe extends Component {
