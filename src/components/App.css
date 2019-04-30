@@ -1,14 +1,24 @@
-.App {
+body{
   width: 100%;
-  font-family: 'Handlee','Patrick Hand', 'Coming Soon', 'Open Sans', 'sans-serif',  cursive;  
+  height: 100%;
 }
+
+.App {
+  font-family: 'Handlee','Patrick Hand', 'Coming Soon', 'Open Sans', 'sans-serif',  cursive; 
+}
+
 .App a:hover{color: unset;}
 
 
-.main-page a{
+.main-page a {
   color: unset;
   background-color: #EAECEE;
 }
+
+.nav-link{
+  color: rgba(0,0,0,.5);
+}
+
 .icons a{background-color: unset}
 
  .main-page h1{font-size: 3em;}

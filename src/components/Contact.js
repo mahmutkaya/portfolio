@@ -138,7 +138,12 @@ class Contact extends Component {
                     {contactAccounts(contactIcons, contactId, contactInfo)}
                   </Col>
                   <Col sm='6'>
-                    <Form onSubmit={this.handleSubmit}>
+                    <Form
+                      name='contact'
+                      method="POST"
+                      onSubmit={this.handleSubmit}
+                      data-netlify="true"
+                    >
                       <FormGroup>
                         <Label for="email">Email</Label>
                         <Input
@@ -147,7 +152,8 @@ class Contact extends Component {
                           id='email'
                           value={this.state.email}
                           onChange={this.handleChange}
-                          required></Input>
+                            required></Input>
+                        
                       </FormGroup>
                       <FormGroup>
                         <Label for="name">Name</Label>
