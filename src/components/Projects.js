@@ -15,7 +15,7 @@ class Projects extends Component {
           <h5>My Recent Work</h5>
         </Row>
         <Row >
-          {projects(portfolio, 'https://mahmutkaya-portfolio.herokuapp.com/')}
+          {projects(portfolio, 'https://www.mahmutkaya.nl/')}
           {projects(news, 'https://news-api-2019.herokuapp.com/')}
           {projects(wiki, 'https://codepen.io/mahmutkaya-the-selector/full/XoMmEW')}
           {projects(todo, 'https://todo-app-2018.netlify.com/')}
