@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {Row} from 'reactstrap';
-import { projects } from '../logic/utilities'
+import {projects} from '../logic/utilities'
 import portfolio from '../img/portfolio.PNG'
 import news from '../img/news.PNG'
 import wiki from '../img/wiki.PNG'
@@ -8,7 +8,6 @@ import todo from '../img/todo.PNG'
 import hyfrepo from '../img/hyfrepo.PNG'
 
 class Projects extends Component {
-  projects = this.projects
   render() {
     return (
       <React.Fragment>

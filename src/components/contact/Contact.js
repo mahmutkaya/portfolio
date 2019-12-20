@@ -2,16 +2,16 @@ import React, { Component } from 'react'
 import ReactTooltip from 'react-tooltip'
 import axios from 'axios'
 import { Button, Form, FormGroup, Label, Input, Row, Col, Card, CardText, CardImg, Spinner} from 'reactstrap';
-import { contactIcons, contactInfo, contactId } from '../logic/info'
-import { contactAccounts } from '../logic/utilities'
-import mailSent from '../img/mailSent.gif'
-import somethingWentWrong from '../img/somethingWentWrong.gif'
+import * as contact from './contactInfos'
+import { contactAccounts } from '../../logic/utilities'
+import mailSent from '../../img/mailSent.gif'
+import somethingWentWrong from '../../img/somethingWentWrong.gif'
 
-const GOOGLE_FORM_MESSAGE_ID = 'entry.354900912'
-const GOOGLE_FORM_EMAIL_ID = 'entry.1973306023'
-const GOOGLE_FORM_NAME_ID = 'entry.1730565971'
-const CORS_PROXY = 'https://cors-anywhere.herokuapp.com/'
-const GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSfJsOJYGM8ddbt1_ACCHQsrprtKEmpwiNmntTKlHb496fMczg/formResponse'
+const GOOGLE_FORM_MESSAGE_ID = 'entry.354900912',
+ GOOGLE_FORM_EMAIL_ID = 'entry.1973306023',
+ GOOGLE_FORM_NAME_ID = 'entry.1730565971',
+ CORS_PROXY = 'https://cors-anywhere.herokuapp.com/',
+ GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSfJsOJYGM8ddbt1_ACCHQsrprtKEmpwiNmntTKlHb496fMczg/formResponse';
 
 class Contact extends Component {
 
@@ -86,7 +86,6 @@ class Contact extends Component {
     const { sendingMessage, messageSent, messageError } = this.state
 
     return (
-      //if:
       sendingMessage ? (
         <Col className='messageStatus' sm='2'>
           <h1 >
@@ -94,10 +93,7 @@ class Contact extends Component {
                 </h1>
           <Spinner color="dark" style={{ width: '3rem', height: '3rem' }} />
         </Col>
-      )
-
-        //if else:
-        : messageSent ? (
+      ) : messageSent ? (
           <Col className='messageStatus' sm='4'>
             <Card>
               <CardImg top width="100%" src={mailSent} />
@@ -110,10 +106,7 @@ class Contact extends Component {
             <hr />
             {this.returnButton()}
           </Col>
-        )
-
-          //if else:
-          : messageError ? (
+        ) : messageError ? (
             <Col className='messageStatus' sm='4'>
               <Card>
                 <CardImg src={somethingWentWrong} />
@@ -126,16 +119,13 @@ class Contact extends Component {
               <hr />
               {this.returnButton()}
             </Col>
-          )
-
-            //else:  
-            : (
+          ) : (
               <div id='contactPage'>
                 <h1>Get in touch!</h1>
                 <hr />
                 <Row>
                   <Col sm='3'>
-                    {contactAccounts(contactIcons, contactId, contactInfo)}
+                    {contactAccounts(contact.icons, contact.id, contact.info)}
                   </Col>
                   <Col sm='6'>
                     <Form

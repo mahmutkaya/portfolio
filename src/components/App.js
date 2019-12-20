@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Navigation from './Navigation'
 import Router from './Router'
-import { Container, Row, Col, Button } from 'reactstrap';
+import { Container } from 'reactstrap';
 import './App.css'
 
 class App extends Component {
