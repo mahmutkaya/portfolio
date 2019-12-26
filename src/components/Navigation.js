@@ -18,7 +18,7 @@ export default class Navigation extends Component {
       const link = title.replace(/ +/g, ""); //remove spaces between words
       return (
         <DropdownItem key={index}>
-          <Link className="nav-link" to={link}>
+          <Link className="nav-link" to={link} tag={Link} >
             {title}
           </Link>
         </DropdownItem>
