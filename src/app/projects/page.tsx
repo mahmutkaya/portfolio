@@ -84,7 +84,15 @@ export default function Projects() {
   );
 }
 
-const projects = [
+type Project = {
+  title: string;
+  description: string;
+  technologies: string[];
+  icon: string;
+  link?: string; // Make it optional with the ? symbol
+};
+
+const projects: Project[] = [
   {
     title: "Automation Framework for Web Applications",
     description: "A comprehensive test automation framework using Playwright, TypeScript, and Cucumber for web applications.",

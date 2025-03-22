@@ -9,7 +9,7 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  color: green;
   background: linear-gradient(
       to bottom,
       transparent,

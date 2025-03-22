@@ -4,6 +4,9 @@ import Link from 'next/link';
 export default function Home() {
   return (
     <div className="min-h-screen">
+      <div className="bg-blue-500 text-white p-4 m-4">
+  If you can see this with blue background and white text, Tailwind is working!
+</div>
       {/* Hero Section */}
       <section className="py-20 px-4">
         <div className="container mx-auto max-w-5xl">
