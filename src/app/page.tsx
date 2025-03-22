@@ -4,14 +4,11 @@ import Link from 'next/link';
 export default function Home() {
   return (
     <div className="min-h-screen">
-      <div className="bg-blue-500 text-white p-4 m-4">
-  If you can see this with blue background and white text, Tailwind is working!
-</div>
       {/* Hero Section */}
-      <section className="py-20 px-4">
+      <section className="py-20 px-4 animate-fade-in">
         <div className="container mx-auto max-w-5xl">
           <div className="flex flex-col md:flex-row items-center justify-between gap-12">
-            <div className="md:w-1/2">
+            <div className="md:w-1/2 animate-slide-up">
               <h1 className="text-4xl md:text-5xl font-bold mb-4">
                 Hi, I'm <span className="text-gradient">Mahmut Kaya</span>
               </h1>
@@ -30,10 +27,10 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-            <div className="md:w-1/2 flex justify-center">
-              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-gray-700">
+            <div className="md:w-1/2 flex justify-center animate-slide-up" style={{ animationDelay: '0.2s' }}>
+              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary border-opacity-30 shadow-lg shadow-primary/20">
                 {/* Replace with actual profile image */}
-                <div className="w-full h-full bg-gray-800 flex items-center justify-center text-6xl font-bold text-gray-600">
+                <div className="w-full h-full bg-gradient-to-br from-dark-200 to-dark-300 flex items-center justify-center text-6xl font-bold text-primary">
                   MK
                 </div>
               </div>
@@ -43,12 +40,16 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <section className="py-16 px-4 bg-gray-900">
+      <section className="py-16 px-4 bg-dark-200 bg-opacity-50 backdrop-blur-sm">
         <div className="container mx-auto max-w-5xl">
-          <h2 className="text-3xl font-bold mb-12 text-center">My Skills</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center text-gradient">My Skills</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {skills.map((skill) => (
-              <div key={skill.name} className="flex flex-col items-center">
+            {skills.map((skill, index) => (
+              <div 
+                key={skill.name} 
+                className="flex flex-col items-center animate-slide-up" 
+                style={{ animationDelay: `${0.1 * index}s` }}
+              >
                 <div className="skill-icon">
                   <span className="text-2xl">{skill.icon}</span>
                 </div>
@@ -62,12 +63,16 @@ export default function Home() {
       {/* Experience Highlight */}
       <section className="py-16 px-4">
         <div className="container mx-auto max-w-5xl">
-          <h2 className="text-3xl font-bold mb-12 text-center">Experience Highlights</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center text-gradient">Experience Highlights</h2>
           <div className="space-y-8">
-            {experiences.map((exp) => (
-              <div key={exp.company} className="card p-6">
+            {experiences.map((exp, index) => (
+              <div 
+                key={exp.company} 
+                className="card p-6 animate-slide-up" 
+                style={{ animationDelay: `${0.1 * index}s` }}
+              >
                 <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
-                  <h3 className="text-xl font-bold">{exp.role}</h3>
+                  <h3 className="text-xl font-bold text-primary">{exp.role}</h3>
                   <div className="text-gray-400">{exp.period}</div>
                 </div>
                 <div className="text-gray-300 mb-2">{exp.company}</div>
@@ -84,9 +89,9 @@ export default function Home() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 px-4 bg-gradient-to-b from-gray-900 to-black">
+      <section className="py-20 px-4 bg-gradient-to-b from-dark-200 to-dark-100">
         <div className="container mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-bold mb-6">Interested in working together?</h2>
+          <h2 className="text-3xl font-bold mb-6 text-gradient">Interested in working together?</h2>
           <p className="text-gray-300 mb-8 text-lg">
             I'm always open to discussing new projects, testing challenges, or automation opportunities.
           </p>

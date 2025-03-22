@@ -17,9 +17,9 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <nav className="bg-gray-900 py-4 sticky top-0 z-50">
+    <nav className="bg-dark-200 py-4 sticky top-0 z-50 shadow-lg backdrop-blur-sm bg-opacity-90">
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <Link href="/" className="text-xl font-bold text-white">
+        <Link href="/" className="text-xl font-bold text-gradient">
           Mahmut Kaya
         </Link>
 
@@ -40,7 +40,7 @@ export default function Navbar() {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-gray-300 hover:text-white"
+          className="md:hidden text-gray-300 hover:text-primary transition-colors"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           <svg
@@ -71,16 +71,16 @@ export default function Navbar() {
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-gray-800 py-2">
+        <div className="md:hidden bg-dark-200 py-2 shadow-lg animate-fade-in">
           <div className="container mx-auto px-4 flex flex-col space-y-3">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.path}
-                className={`block py-2 px-4 ${
+                className={`block py-2 px-4 rounded-md transition-all duration-300 ${
                   pathname === item.path
-                    ? 'bg-gray-700 text-white'
-                    : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+                    ? 'bg-primary bg-opacity-20 text-primary'
+                    : 'text-gray-300 hover:bg-primary hover:bg-opacity-10 hover:text-primary'
                 }`}
                 onClick={() => setMobileMenuOpen(false)}
               >
