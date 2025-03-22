@@ -5,17 +5,17 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-20 px-4 animate-fade-in">
+      <section className="py-20 px-4 bg-light-100 animate-fade-in">
         <div className="container mx-auto max-w-5xl">
           <div className="flex flex-col md:flex-row items-center justify-between gap-12">
             <div className="md:w-1/2 animate-slide-up">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              <h1 className="text-4xl md:text-5xl font-bold mb-4 text-dark-100">
                 Hi, I'm <span className="text-gradient">Mahmut Kaya</span>
               </h1>
-              <h2 className="text-2xl md:text-3xl text-gray-400 mb-6">
+              <h2 className="text-2xl md:text-3xl text-gray-600 mb-6">
                 QA Engineer
               </h2>
-              <p className="text-gray-300 mb-8 text-lg">
+              <p className="text-gray-700 mb-8 text-lg">
                 ISTQB certified Test Automation Engineer with 6 years of experience in Software Testing and web development. I design and implement automation frameworks from scratch for UI, API, and database testing.
               </p>
               <div className="flex flex-wrap gap-4">
@@ -28,9 +28,9 @@ export default function Home() {
               </div>
             </div>
             <div className="md:w-1/2 flex justify-center animate-slide-up" style={{ animationDelay: '0.2s' }}>
-              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary border-opacity-30 shadow-lg shadow-primary/20">
+              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary border-opacity-20 shadow-lg shadow-primary/10">
                 {/* Replace with actual profile image */}
-                <div className="w-full h-full bg-gradient-to-br from-dark-200 to-dark-300 flex items-center justify-center text-6xl font-bold text-primary">
+                <div className="w-full h-full bg-gradient-to-br from-primary-light to-secondary-light flex items-center justify-center text-6xl font-bold text-white">
                   MK
                 </div>
               </div>
@@ -40,7 +40,7 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <section className="py-16 px-4 bg-dark-200 bg-opacity-50 backdrop-blur-sm">
+      <section className="py-16 px-4 bg-light-200">
         <div className="container mx-auto max-w-5xl">
           <h2 className="text-3xl font-bold mb-12 text-center text-gradient">My Skills</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
@@ -53,7 +53,7 @@ export default function Home() {
                 <div className="skill-icon">
                   <span className="text-2xl">{skill.icon}</span>
                 </div>
-                <h3 className="text-lg font-medium text-center">{skill.name}</h3>
+                <h3 className="text-lg font-medium text-center text-gray-800">{skill.name}</h3>
               </div>
             ))}
           </div>
@@ -61,7 +61,7 @@ export default function Home() {
       </section>
 
       {/* Experience Highlight */}
-      <section className="py-16 px-4">
+      <section className="py-16 px-4 bg-light-100">
         <div className="container mx-auto max-w-5xl">
           <h2 className="text-3xl font-bold mb-12 text-center text-gradient">Experience Highlights</h2>
           <div className="space-y-8">
@@ -73,10 +73,10 @@ export default function Home() {
               >
                 <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
                   <h3 className="text-xl font-bold text-primary">{exp.role}</h3>
-                  <div className="text-gray-400">{exp.period}</div>
+                  <div className="text-gray-500">{exp.period}</div>
                 </div>
-                <div className="text-gray-300 mb-2">{exp.company}</div>
-                <p className="text-gray-400">{exp.description}</p>
+                <div className="text-gray-700 mb-2 font-medium">{exp.company}</div>
+                <p className="text-gray-600">{exp.description}</p>
               </div>
             ))}
           </div>
@@ -89,10 +89,10 @@ export default function Home() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 px-4 bg-gradient-to-b from-dark-200 to-dark-100">
+      <section className="py-20 px-4 bg-gradient-to-b from-light-200 to-light-300">
         <div className="container mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-bold mb-6 text-gradient">Interested in working together?</h2>
-          <p className="text-gray-300 mb-8 text-lg">
+          <p className="text-gray-700 mb-8 text-lg">
             I'm always open to discussing new projects, testing challenges, or automation opportunities.
           </p>
           <Link href="/contact" className="btn btn-primary">

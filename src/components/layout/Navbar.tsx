@@ -17,7 +17,7 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <nav className="bg-dark-200 py-4 sticky top-0 z-50 shadow-lg backdrop-blur-sm bg-opacity-90">
+    <nav className="bg-white py-4 sticky top-0 z-50 shadow-sm">
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link href="/" className="text-xl font-bold text-gradient">
           Mahmut Kaya
@@ -40,7 +40,7 @@ export default function Navbar() {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-gray-300 hover:text-primary transition-colors"
+          className="md:hidden text-gray-500 hover:text-primary transition-colors"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           <svg
@@ -71,7 +71,7 @@ export default function Navbar() {
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-dark-200 py-2 shadow-lg animate-fade-in">
+        <div className="md:hidden bg-white py-2 shadow-md animate-fade-in">
           <div className="container mx-auto px-4 flex flex-col space-y-3">
             {navItems.map((item) => (
               <Link
@@ -79,8 +79,8 @@ export default function Navbar() {
                 href={item.path}
                 className={`block py-2 px-4 rounded-md transition-all duration-300 ${
                   pathname === item.path
-                    ? 'bg-primary bg-opacity-20 text-primary'
-                    : 'text-gray-300 hover:bg-primary hover:bg-opacity-10 hover:text-primary'
+                    ? 'bg-primary bg-opacity-10 text-primary'
+                    : 'text-gray-600 hover:bg-primary hover:bg-opacity-5 hover:text-primary'
                 }`}
                 onClick={() => setMobileMenuOpen(false)}
               >
