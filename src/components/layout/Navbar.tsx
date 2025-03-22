@@ -32,9 +32,9 @@ export default function Navbar() {
   return (
     <>
       <div className="scroll-progress" style={{ width: `${scrollProgress}%` }}></div>
-      <nav className="bg-dark-200 py-4 sticky top-0 z-50 shadow-lg backdrop-blur-sm bg-opacity-80 border-b border-gray-800">
+      <nav className="bg-background-secondary py-4 sticky top-0 z-50 shadow-sm backdrop-blur-sm bg-opacity-90 border-b border-border">
         <div className="container mx-auto px-4 flex justify-between items-center">
-          <Link href="/" className="text-xl font-bold text-gradient">
+          <Link href="/" className="text-xl font-bold text-gradient font-heading">
             Mahmut Kaya
           </Link>
 
@@ -55,7 +55,7 @@ export default function Navbar() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-gray-300 hover:text-primary transition-colors"
+            className="md:hidden text-text-secondary hover:text-primary transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -87,7 +87,7 @@ export default function Navbar() {
 
         {/* Mobile Navigation */}
         <div 
-          className={`md:hidden bg-dark-200 py-2 shadow-lg transition-all duration-300 overflow-hidden ${
+          className={`md:hidden bg-background-secondary py-2 shadow-sm transition-all duration-300 overflow-hidden ${
             mobileMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
           }`}
         >
@@ -98,8 +98,8 @@ export default function Navbar() {
                 href={item.path}
                 className={`block py-2 px-4 rounded-md transition-all duration-300 ${
                   pathname === item.path
-                    ? 'bg-primary bg-opacity-20 text-primary'
-                    : 'text-gray-300 hover:bg-primary hover:bg-opacity-10 hover:text-primary'
+                    ? 'bg-primary bg-opacity-10 text-primary'
+                    : 'text-text-secondary hover:bg-primary hover:bg-opacity-5 hover:text-primary'
                 }`}
                 onClick={() => setMobileMenuOpen(false)}
               >

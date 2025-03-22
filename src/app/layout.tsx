@@ -1,25 +1,20 @@
+import { inter, poppins, firaCode } from '@/lib/fonts';
 import './globals.css';
-import Navbar from '@/components/layout/Navbar';
-import Footer from '@/components/layout/Footer';
+
+export const metadata = {
+  title: 'Mahmut Kaya | QA Engineer',
+  description: 'Portfolio website of Mahmut Kaya, QA Engineer specializing in test automation',
+};
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-      </head>
-      <body className="flex flex-col min-h-screen">
-        <Navbar />
-        <main className="flex-grow">
-          {children}
-        </main>
-        <Footer />
+    <html lang="en" className={`${inter.variable} ${poppins.variable} ${firaCode.variable}`}>
+      <body className="min-h-screen bg-background text-text-primary">
+        {children}
       </body>
     </html>
   );
