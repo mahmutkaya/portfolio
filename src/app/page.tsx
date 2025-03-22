@@ -1,24 +1,23 @@
-import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
+    <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="py-20 px-4 bg-light-100 animate-fade-in">
-        <div className="container mx-auto max-w-5xl">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-12">
-            <div className="md:w-1/2 animate-slide-up">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4 text-dark-100">
-                Hi, I'm <span className="text-gradient">Mahmut Kaya</span>
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6 animate-fade-in">
+              <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+                Hi, I'm <span className="gradient-text">Mahmut Kaya</span>
               </h1>
-              <h2 className="text-2xl md:text-3xl text-gray-600 mb-6">
+              <h2 className="text-2xl md:text-3xl font-semibold text-foreground/80">
                 QA Engineer
               </h2>
-              <p className="text-gray-700 mb-8 text-lg">
+              <p className="text-lg text-foreground/70 leading-relaxed">
                 ISTQB certified Test Automation Engineer with 6 years of experience in Software Testing and web development. I design and implement automation frameworks from scratch for UI, API, and database testing.
               </p>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-4 pt-2">
                 <Link href="/resume" className="btn btn-primary">
                   View Resume
                 </Link>
@@ -27,10 +26,10 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-            <div className="md:w-1/2 flex justify-center animate-slide-up" style={{ animationDelay: '0.2s' }}>
-              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary border-opacity-20 shadow-lg shadow-primary/10">
-                {/* Replace with actual profile image */}
-                <div className="w-full h-full bg-gradient-to-br from-primary-light to-secondary-light flex items-center justify-center text-6xl font-bold text-white">
+            <div className="flex justify-center animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary/20 shadow-lg">
+                {/* Profile image or initials */}
+                <div className="w-full h-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-6xl font-bold text-white">
                   MK
                 </div>
               </div>
@@ -40,20 +39,20 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <section className="py-16 px-4 bg-light-200">
-        <div className="container mx-auto max-w-5xl">
-          <h2 className="text-3xl font-bold mb-12 text-center text-gradient">My Skills</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      <section className="py-16 bg-muted">
+        <div className="container">
+          <h2 className="section-title gradient-text">My Skills</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 mt-12">
             {skills.map((skill, index) => (
               <div 
                 key={skill.name} 
                 className="flex flex-col items-center animate-slide-up" 
-                style={{ animationDelay: `${0.1 * index}s` }}
+                style={{ animationDelay: `${0.05 * index}s` }}
               >
-                <div className="skill-icon">
-                  <span className="text-2xl">{skill.icon}</span>
+                <div className="skill-icon mb-3">
+                  <span>{skill.icon}</span>
                 </div>
-                <h3 className="text-lg font-medium text-center text-gray-800">{skill.name}</h3>
+                <h3 className="font-medium text-center">{skill.name}</h3>
               </div>
             ))}
           </div>
@@ -61,22 +60,26 @@ export default function Home() {
       </section>
 
       {/* Experience Highlight */}
-      <section className="py-16 px-4 bg-light-100">
-        <div className="container mx-auto max-w-5xl">
-          <h2 className="text-3xl font-bold mb-12 text-center text-gradient">Experience Highlights</h2>
-          <div className="space-y-8">
+      <section className="py-16 bg-background">
+        <div className="container">
+          <h2 className="section-title gradient-text">Experience Highlights</h2>
+          <div className="space-y-8 mt-12">
             {experiences.map((exp, index) => (
               <div 
                 key={exp.company} 
-                className="card p-6 animate-slide-up" 
+                className="card animate-slide-up" 
                 style={{ animationDelay: `${0.1 * index}s` }}
               >
-                <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
-                  <h3 className="text-xl font-bold text-primary">{exp.role}</h3>
-                  <div className="text-gray-500">{exp.period}</div>
+                <div className="card-header">
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
+                    <h3 className="card-title text-primary">{exp.role}</h3>
+                    <span className="text-sm text-muted-foreground">{exp.period}</span>
+                  </div>
+                  <p className="text-foreground/80 font-medium">{exp.company}</p>
                 </div>
-                <div className="text-gray-700 mb-2 font-medium">{exp.company}</div>
-                <p className="text-gray-600">{exp.description}</p>
+                <div className="card-content">
+                  <p className="text-foreground/70">{exp.description}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -89,10 +92,10 @@ export default function Home() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 px-4 bg-gradient-to-b from-light-200 to-light-300">
-        <div className="container mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-bold mb-6 text-gradient">Interested in working together?</h2>
-          <p className="text-gray-700 mb-8 text-lg">
+      <section className="py-16 md:py-24 bg-gradient-to-b from-muted to-background">
+        <div className="container max-w-3xl text-center">
+          <h2 className="text-3xl font-bold mb-6 gradient-text">Interested in working together?</h2>
+          <p className="text-lg text-foreground/70 mb-8">
             I'm always open to discussing new projects, testing challenges, or automation opportunities.
           </p>
           <Link href="/contact" className="btn btn-primary">

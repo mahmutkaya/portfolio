@@ -17,34 +17,33 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <nav className="bg-white py-4 sticky top-0 z-50 shadow-sm">
-      <div className="container mx-auto px-4 flex justify-between items-center">
-        <Link href="/" className="text-xl font-bold text-gradient">
+    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container flex h-16 items-center justify-between">
+        <Link href="/" className="font-bold text-xl md:text-2xl gradient-text">
           Mahmut Kaya
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex space-x-8">
+        <nav className="hidden md:flex gap-6">
           {navItems.map((item) => (
             <Link
               key={item.name}
               href={item.path}
-              className={`nav-link ${
-                pathname === item.path ? 'active-nav-link' : ''
-              }`}
+              className={`nav-link ${pathname === item.path ? 'active' : ''}`}
             >
               {item.name}
             </Link>
           ))}
-        </div>
+        </nav>
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-gray-500 hover:text-primary transition-colors"
+          className="md:hidden flex items-center justify-center rounded-md p-2 text-foreground/70 hover:text-primary"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle menu"
         >
           <svg
-            className="w-6 h-6"
+            className="h-6 w-6"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -71,25 +70,25 @@ export default function Navbar() {
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white py-2 shadow-md animate-fade-in">
-          <div className="container mx-auto px-4 flex flex-col space-y-3">
+        <div className="md:hidden border-b border-border animate-fade-in">
+          <nav className="container py-4 flex flex-col space-y-3">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.path}
-                className={`block py-2 px-4 rounded-md transition-all duration-300 ${
+                className={`px-4 py-2 rounded-md ${
                   pathname === item.path
-                    ? 'bg-primary bg-opacity-10 text-primary'
-                    : 'text-gray-600 hover:bg-primary hover:bg-opacity-5 hover:text-primary'
+                    ? 'bg-primary/10 text-primary font-medium'
+                    : 'text-foreground/70 hover:text-primary hover:bg-primary/5'
                 }`}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {item.name}
               </Link>
             ))}
-          </div>
+          </nav>
         </div>
       )}
-    </nav>
+    </header>
   );
 }

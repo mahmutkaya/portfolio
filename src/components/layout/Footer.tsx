@@ -4,11 +4,11 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="bg-light-200 py-8 mt-auto border-t border-gray-200">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-4 md:mb-0">
-            <p className="text-gray-600 text-sm">
+    <footer className="border-t border-border bg-background">
+      <div className="container py-8">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <div>
+            <p className="text-sm text-muted-foreground">
               © {currentYear} Mahmut Kaya. All rights reserved.
             </p>
           </div>
@@ -17,10 +17,11 @@ export default function Footer() {
               href="https://github.com/mahmutkaya"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-500 hover:text-primary transition-colors duration-300 transform hover:scale-110"
+              className="text-muted-foreground hover:text-primary transition-colors duration-300"
+              aria-label="GitHub"
             >
               <svg
-                className="w-5 h-5"
+                className="h-5 w-5"
                 fill="currentColor"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -32,10 +33,11 @@ export default function Footer() {
               href="https://linkedin.com/in/mahmut-kaya"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-500 hover:text-primary transition-colors duration-300 transform hover:scale-110"
+              className="text-muted-foreground hover:text-primary transition-colors duration-300"
+              aria-label="LinkedIn"
             >
               <svg
-                className="w-5 h-5"
+                className="h-5 w-5"
                 fill="currentColor"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
