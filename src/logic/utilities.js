@@ -8,14 +8,20 @@ import {
   PopoverHeader,
   Button
 } from "reactstrap";
+import { Tooltip } from "react-tooltip";
 
+// Note: This function has been modified to use react-tooltip
 const skills = (icons, info, link) => {
-  console.log(info);
   return icons.map((icon, index) => (
-    <div className="icons" key={index}>
+    <div className="icons" key={index} data-tooltip-id={`icon-${index}`}>
       <a href={link[index]} target="_blank" rel="noopener noreferrer">
-        <i className={icon} data-tip={info[index]}></i>
+        <i className={icon}></i>
       </a>
+      {info[index] && (
+        <Tooltip id={`icon-${index}`} place="top">
+          {info[index]}
+        </Tooltip>
+      )}
     </div>
   ));
 };
