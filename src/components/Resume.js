@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Card, CardBody, Row, Col } from "reactstrap";
+import { Card, CardBody } from "reactstrap";
 
 class Resume extends Component {
   render() {

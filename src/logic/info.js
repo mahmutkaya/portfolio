@@ -36,10 +36,6 @@ const devToolsIcons = [
   'fab fa-docker'
 ]
 
-const testingToolsIcons = [
-  
-]
-
 const socialAccounts = [
   'fab fa-linkedin',
   'fab fa-github',
