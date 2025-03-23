@@ -1,0 +1,133 @@
+body{
+  width: 100%;
+  height: 100%;
+}
+
+.App {
+  font-family: 'Handlee','Patrick Hand', 'Coming Soon', 'Open Sans', 'sans-serif',  cursive; 
+}
+
+.App a:hover{color: unset;}
+
+
+.main-page a {
+  color: unset;
+  background-color: #EAECEE;
+}
+
+.nav-link{
+  color: rgba(0,0,0,.5);
+}
+
+.icons a{background-color: unset}
+
+ .main-page h1{font-size: 3em;}
+
+ .main-page h3 {font-size: 2em;}
+
+p{font-size: 1.5em;}
+
+img{
+  filter: grayscale(100%);
+  height: 230px;
+}
+
+.center{
+  justify-content: center;
+}
+
+#news-card{
+  margin-block-end: 19px;
+}
+
+img:hover{
+  filter: grayscale(100%) brightness(70%)
+}
+
+.main-page button{
+  margin-inline-end: 34px;
+}
+
+.fa, .fab, .fas, .far{
+  font-size: 3em;
+  color: #ABB2B9;
+}
+
+.icons {
+  display: inline;
+  margin: 17px;
+}
+
+.skills{
+  margin-top: 44px;
+}
+
+.skills h5{
+  margin-bottom: 17px;
+}
+
+.languages{
+  margin-bottom: 33px;
+}
+
+.main-page span{
+  margin: auto;
+  width: 100;
+  padding: 2%;
+}
+
+.buttons{
+  border-inline-end: #ABB2B9 solid 2px;
+  border-radius: 50%;
+}
+.buttons button{
+  width: 100px;
+  height: 100px;
+  transform: rotate(45deg);
+  border-radius: 0% 80% ;
+  margin-block-start: 50%;
+}
+
+#about-me,
+.messageStatus .card {
+  border: none;
+}
+
+#profile-photo{
+  width: 70%;
+  height: auto;
+  box-shadow: #ABB2B9 5px 21px 37px 19px;
+  border-radius: 12px;
+  margin-bottom: 37px;
+}
+
+#profile-photo:hover{
+  filter: none;
+}
+
+.social-accounts{
+  margin-top: 25px;
+}
+
+/* contactPage */
+
+#contactPage{
+  width: 80%;
+  margin: auto;
+
+}
+
+#contactPage button{
+  margin-block-end: 10%;
+}
+
+.messageStatus{
+  text-align: center;
+  margin: auto;
+  border: none;
+}
+
+.goBack {
+  font-size: 5em;
+  background-color: white;
+}
