@@ -3,6 +3,7 @@ import Navigation from './Navigation'
 import Router from './Router'
 import { Container } from 'reactstrap';
 import './App.css'
+import Footer from './Footer';
 
 class App extends Component {
 
@@ -13,6 +14,7 @@ class App extends Component {
         <Container className='main-page'>
           <Router />
         </Container>
+        <Footer/>
       </div>
     );
   }

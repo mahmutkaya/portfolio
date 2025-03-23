@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Card, CardBody } from "reactstrap";
-import { socialAccounts, socialAccountLinks } from "../logic/info";
-import { skills } from "../logic/utilities";
 import profilePhoto from "../img/profilePhoto.png";
+import { socialMediaAccounts } from "../utils/commons";
 
 class AboutMe extends Component {
   render() {
@@ -46,8 +45,8 @@ class AboutMe extends Component {
                 </CardBody>
               </Card>
             </div>
-            <div class="award-1">
-              <i class="fas fa-laptop fa-3x"></i>
+            <div className="award-1">
+              <i className="fas fa-laptop fa-3x"></i>
               <h3>Automation Expert</h3>
               <p>
                 Designing and implementing robust automation frameworks that
@@ -55,16 +54,16 @@ class AboutMe extends Component {
                 technologies.
               </p>
             </div>
-            <div class="award-2">
-              <i class="fas fa-graduation-cap fa-3x"></i>
+            <div className="award-2">
+              <i className="fas fa-graduation-cap fa-3x"></i>
               <h3>Technical Mentor</h3>
               <p>
                 Sharing knowledge and helping others grow through focused
                 mentoring sessions on test automation practices and programming.
               </p>
             </div>
-            <div class="award-3">
-              <i class="fas fa-code-branch fa-3x"></i>
+            <div className="award-3">
+              <i className="fas fa-code-branch fa-3x"></i>
               <h3>Framework Specialist</h3>
               <p>
                 Creating maintainable, scalable test automation architectures
@@ -72,7 +71,33 @@ class AboutMe extends Component {
               </p>
             </div>
             <div className="social-accounts">
-              {skills(socialAccounts, "", socialAccountLinks)}
+              <div className="icons">
+                <a
+                  href={socialMediaAccounts.linkedin.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i className={socialMediaAccounts.linkedin.icon}></i>
+                </a>
+              </div>
+              <div className="icons">
+                <a
+                  href={socialMediaAccounts.github.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i className={socialMediaAccounts.github.icon}></i>
+                </a>
+              </div>
+              <div className="icons">
+                <a
+                  href={socialMediaAccounts.twitter.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i className={socialMediaAccounts.twitter.icon}></i>
+                </a>
+              </div>
             </div>
           </div>
         </div>

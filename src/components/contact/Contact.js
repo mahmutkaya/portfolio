@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import { Tooltip } from 'react-tooltip'
 import axios from 'axios'
-import { Button, Form, FormGroup, Label, Input, Row, Col, Card, CardText, CardImg, Spinner} from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, Row, Col, Card, CardText, CardImg, Spinner, UncontrolledPopover, PopoverHeader} from 'reactstrap';
 import * as contact from './contactInfos'
-import { contactAccounts } from '../../logic/utilities'
 import mailSent from '../../img/mailSent.gif'
 import somethingWentWrong from '../../img/somethingWentWrong.gif'
 
@@ -12,6 +11,22 @@ const GOOGLE_FORM_MESSAGE_ID = 'entry.354900912',
  GOOGLE_FORM_NAME_ID = 'entry.1730565971',
  CORS_PROXY = 'https://cors-anywhere.herokuapp.com/',
  GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSfJsOJYGM8ddbt1_ACCHQsrprtKEmpwiNmntTKlHb496fMczg/formResponse';
+
+ const contactAccounts = (icons, id, info) =>
+  icons.map((icon, index) => (
+    <div key={index}>
+      <Button color="link" id={id[index]} type="button">
+        <i className={icon}></i>
+      </Button>
+      <UncontrolledPopover
+        trigger="legacy"
+        placement="right"
+        target={id[index]}
+      >
+        <PopoverHeader>{info[index]}</PopoverHeader>
+      </UncontrolledPopover>
+    </div>
+  ));
 
 class Contact extends Component {
 
