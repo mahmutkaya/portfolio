@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Row, Col, Button } from "reactstrap";
-import ReactTooltip from "react-tooltip";
+import { Tooltip } from "react-tooltip";
 import {
   languages,
   languagesIcons,
@@ -36,7 +36,7 @@ class MainPage extends Component {
               {skills(devToolsIcons, devTools, "")}
             </div>
           </div>
-          <ReactTooltip />
+          <Tooltip />
         </Col>
         <Col sm={{ size: 2, offset: 0 }} className="buttons">
           <Button outline color="secondary">

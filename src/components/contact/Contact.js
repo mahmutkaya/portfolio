@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ReactTooltip from 'react-tooltip'
+import { Tooltip } from 'react-tooltip'
 import axios from 'axios'
 import { Button, Form, FormGroup, Label, Input, Row, Col, Card, CardText, CardImg, Spinner} from 'reactstrap';
 import * as contact from './contactInfos'
@@ -78,7 +78,7 @@ class Contact extends Component {
       onClick={this.handleReturnButton}
     >
       <i data-tip='go back' className="fas fa-arrow-left goBack"></i>
-      <ReactTooltip />
+      <Tooltip />
     </Button>
   )
 

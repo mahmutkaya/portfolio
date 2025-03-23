@@ -12,7 +12,7 @@ class App extends Component {
         <Navigation />
         <Container className='main-page'>
           <Router />
-          </Container>
+        </Container>
       </div>
     );
   }

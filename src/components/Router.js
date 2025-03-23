@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import MainPage from "./MainPage";
 import AboutMe from "./AboutMe";
 import Projects from "./Projects";
@@ -7,13 +7,13 @@ import Resume from "./Resume";
 import Contact from "./contact/Contact";
 
 const Router = () => (
-  <Switch>
-    <Route exact path="/" component={MainPage} />
-    <Route path="/AboutMe" component={AboutMe} />
-    <Route path="/Projects" component={Projects} />
-    <Route path="/Resume" component={Resume} />
-    <Route path="/Contact" component={Contact} />
-  </Switch>
+  <Routes>
+    <Route path="/" element={<MainPage />} />
+    <Route path="/AboutMe" element={<AboutMe />} />
+    <Route path="/Projects" element={<Projects />} />
+    <Route path="/Resume" element={<Resume />} />
+    <Route path="/Contact" element={<Contact />} />
+  </Routes>
 );
 
 export default Router;
