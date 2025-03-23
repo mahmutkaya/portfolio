@@ -188,6 +188,7 @@ const skills = [
   'JUnit',
   'Git',
   'CI/CD',
+  'Appium',
 ];
 
 const languages = [

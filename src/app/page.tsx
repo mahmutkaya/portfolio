@@ -164,6 +164,7 @@ const skills = [
   { name: 'CI/CD', icon: null, svg: '/icons/jenkins.svg', level: 80 },
   { name: 'Appium', icon: '📱', level: 70 },
   { name: 'WinAppDriver', icon: '🖥️', level: 65 },
+  { name: 'Cypress', icon: '⚡', level: 75 },
 ];
 
 const experiences = [
